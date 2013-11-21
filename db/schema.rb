@@ -27,7 +27,6 @@ ActiveRecord::Schema.define(:version => 20131120220704) do
   create_table "members", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.string   "email"
     t.string   "interests"
     t.boolean  "dependent"
     t.datetime "created_at", :null => false

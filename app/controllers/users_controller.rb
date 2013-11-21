@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.new(params[:user])
     if @user.save
       sign_in(@user)
-      redirect_to links_path
+      redirect_to members_path
     else
       flash[:error] = @user.errors.messages
       render :new
@@ -22,7 +22,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      redirect_to links_path
+      redirect_to members_path
     else
       flash[:error] = @user.errors.full_messages
       render :edit
@@ -32,7 +32,7 @@ class UsersController < ApplicationController
   def destroy
     user = User.find(params[:id])
     user.delete
-    redirect_to links_path
+    redirect_to members_path
   end
 end
 

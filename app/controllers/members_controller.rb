@@ -13,7 +13,9 @@ class MembersController < ApplicationController
   end
 
   def create
-    @user = User.find(params[:member][:user_id])
+    #raise params.inspect
+
+    @user = User.find(params[:member][:user_id].to_i)
     @member = Member.new(params[:member])
     if @member.save
       redirect_to members_path
@@ -24,16 +26,17 @@ class MembersController < ApplicationController
   end
 
   def show
-    @members = Member.find_by_permalink(params[:id])
+    @member = Member.find(params[:id])
     # create a new session with @memember
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @member }
     end
+  end
 
-    def permalink
-      # same as show page
-    end
+  def permalink
+    @member = Member.find_by_permalink(params[:permalink])
+    redirect_to member_path @member.id
   end
 
   def edit

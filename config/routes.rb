@@ -12,7 +12,7 @@ Giftexchange2::Application.routes.draw do
 
   get 'signup' => 'users#new'
 
-
+  match 'members/:permalink' => 'members#show'
 
 
 end

@@ -1,38 +1,3 @@
 
 
-  Greetings <%#= member.name %>!
-
-  <form>
-    <p>Are you going to participate?</p>
-
-    <input type="checkbox" name="member-check-yes" value="yes">Yes<br>
-    <input type="checkbox" name="member-check-no" value="no">No
-
-    <div id="no-response">
-      <p>Bummer, maybe next year!</p>
-    </div>
-
-    <div id="member-yes-response">
-      <p>Sweet! Provide some of your recent interests here so the person who "draws" you has some ideas:</p>
-      <textarea id="member-interests" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
-    </div>
-  </form>
-
-  <form>
-    <p>Is <%#= dependent.name %> going to participate?</p>
-    <input type="checkbox" name="dependent-check-yes" value="yes">Yes<br>
-    <input type="checkbox" name="dependent-check-no" value="no">No
-
-    <div id="dependent-no-response">
-      <p>Bummer, maybe next year!</p>
-    </div>
-
-    <div id="dependent-yes-response">
-      <p>Sweet! Provide some of their interests here:</p>
-      <textarea id="dependent-interests" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
-    </div>
-
-    <input type="submit" value="Submit">
-  </form>
-
-
+  <%= @members %>

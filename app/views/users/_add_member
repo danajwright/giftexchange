@@ -1,0 +1,41 @@
+<%= form_for(@member) do |f| %>
+  <% if @member.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@member.errors.count, "error") %> prohibited this member from being saved:</h2>
+
+      <ul>
+      <% @member.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+<% end %>
+
+  <div class="field">
+    <%= f.label :first_name %><br />
+    <%= f.text_field :first_name, :autofocus => true %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %><br />
+    <%= f.text_field :last_name, :autofocus => true %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :interests %><br />
+    <%= f.text_field :interests %>
+  </div>
+  <div class="field">
+    <%= f.label :dependent %><br />
+    <%= f.radio_button :dependent, true %> <%= f.label :dependent, "Yes" %>
+    <%= f.radio_button :dependent, false %> <%= f.label :dependent, "No" %>
+  </div>
+
+  <!--   <input id="user_id" name"user_id" type="hidden" value="<%= current_user.id %>" > -->
+
+  <div class="actions">
+    <%= f.submit "Save Member" %>
+  </div>
+<% end %>

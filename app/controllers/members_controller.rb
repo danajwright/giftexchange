@@ -44,7 +44,8 @@ class MembersController < ApplicationController
   end
 
   def update
-    @member = Member.find_permalink(params[:id])
+    #binding.pry
+    @member = Member.find(params[:id])
     if @member.update_attributes(params[:member])
       redirect_to members_path
     else

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122012533) do
+ActiveRecord::Schema.define(:version => 20131122193556) do
 
   create_table "exchanges", :force => true do |t|
     t.string   "name"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(:version => 20131122012533) do
     t.string   "email"
     t.string   "permalink"
     t.integer  "user_id"
+    t.integer  "member_id"
   end
 
   create_table "users", :force => true do |t|

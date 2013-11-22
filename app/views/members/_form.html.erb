@@ -33,6 +33,10 @@
     <%= f.radio_button :dependent, false %> <%= f.label :dependent, "No" %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
+  <div class="field">
+    <%= f.label "Member ID" %><br />
+    <%= f.text_field :member_id %>
+  </div>
 
   <div class="actions">
     <%= f.submit "Save Member" %>

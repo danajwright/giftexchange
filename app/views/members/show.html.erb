@@ -1,10 +1,10 @@
 Greetings <%= @member.first_name %>!
 
-  <form>
+  <form id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
     <p>Are you going to participate?</p>
 
-    <input type="checkbox" name="member-check-yes" value="yes">Yes<br>
-    <input type="checkbox" name="member-check-no" value="no">No
+    <input type="checkbox" name="member[active]" value="true">Yes<br>
+    <input type="checkbox" name="member[active]" value="false">No
 
     <div id="no-response">
       <p>Bummer, maybe next year!</p>
@@ -12,14 +12,12 @@ Greetings <%= @member.first_name %>!
 
     <div id="member-yes-response">
       <p>Sweet! Provide some of your recent interests here so the person who "draws" you has some ideas:</p>
-      <textarea id="member-interests" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
+      <textarea id="member-interests" name="member[interests]" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
     </div>
-  </form>
 
-  <form>
-    <p>Is <%#= dependent.name %> going to participate?</p>
-    <input type="checkbox" name="dependent-check-yes" value="yes">Yes<br>
-    <input type="checkbox" name="dependent-check-no" value="no">No
+    <p>Is <%= Member.find_by_member_id(@member.id).first_name %> going to participate?</p>
+    <input type="checkbox" name="member[dependent]" value="true">Yes<br>
+    <input type="checkbox" name="member[dependent]" value="false">No
 
     <div id="dependent-no-response">
       <p>Bummer, maybe next year!</p>
@@ -27,7 +25,7 @@ Greetings <%= @member.first_name %>!
 
     <div id="dependent-yes-response">
       <p>Sweet! Provide some of their interests here:</p>
-      <textarea id="dependent-interests" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
+      <textarea id="dependent-interests" name="member[interests]" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
     </div>
 
     <input type="submit" value="Submit">

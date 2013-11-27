@@ -1,18 +1,20 @@
 
 <%#= Member.find_by_member_id(@member.id).first_name %>
+  <% @dependents.each do |d| %>
+    <div class="dependent-form">
+      <p>How about <%= d.first_name %>?</p>
+      <label class="radio" for="radios-1">
+        <input type="radio" id="radios-0" name="reply[<%= d.id %>]" required="true" value="true">Yes<br>
+        <input type="radio" id="radios-0" name="reply[<%= d.id %>]" required="true" value="false">No
+      </label>
 
-<% @dependents.each do |d| %>
-  <p>Is <%= d.first_name %> going to participate?</p>
-  <input type="radio" name="reply[<%= d.id %>]" required="true" value="true">Yes<br>
-  <input type="radio" name="reply[<%= d.id %>]" required="true" value="false">No
+      <div id="dependent-no-response">
+        <p>Bummer, maybe next year!</p>
+      </div>
 
-  <div id="dependent-no-response">
-    <p>Bummer, maybe next year!</p>
-  </div>
-
-  <div id="dependent-yes-response">
-    <p>Sweet! Provide some of their interests here:</p>
-    <textarea id="dependent-interests" name="interests[<%= d.id %>]" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
-  </div>
-
-<% end %>
+      <div id="dependent-yes-response">
+        <p>Sweet! Provide some of their interests here:</p>
+        <textarea class="form-control" id="dependent-interests" name="interests[<%= d.id %>]" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
+      </div>
+    </div>
+  <% end %>

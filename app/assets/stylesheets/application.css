@@ -9,10 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require_tree .
- */
+*/
 
-ul {
+
+/*ul {
   list-style-type: none;
   padding-left: 0;
 }
@@ -20,4 +22,97 @@ ul {
 .label {
   font-weight: bold;
   margin-top: 6px;
+}*/
+
+/*************************GLOBAL NAVBAR****************************/
+
+.navbar {
+  background-image:url('header.png');
 }
+
+.navbar-header {
+  color: #fff;
+}
+
+.navbar-inverse .navbar-nav li a {
+  color: #fff;
+}
+
+.navbar-brand {
+  font-style: italic;
+  font-size: 3em;
+}
+
+/*************************ADMIN SIGNIN BODY****************************/
+
+
+
+
+/*************************MEMBER FORM BODY****************************/
+
+.center-div {
+  float: none;
+  margin: 0 auto;
+  max-width: 409px;
+}
+
+.center-div h2 {
+  margin-top: 2.6em;
+}
+
+form {
+  margin-top: 1.3em;
+}
+
+#member-no-response  {
+  /*display: none;*/
+  margin-top: 1em;
+}
+
+.show_hide {
+    display:none;
+}
+
+
+#member-yes-response {
+  /*display: none;*/
+  margin-top: 1em;
+}
+
+.dependent-form {
+  margin-top: 1em;
+}
+
+#dependent-yes-response {
+  /*display: none;*/
+  margin-top: 1em;
+}
+
+#dependent-no-response {
+  /*display: none;*/
+  margin-top: 1em;
+}
+
+#form-button {
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/*************************GLOBAL FOOTER****************************/
+
+
+.foot-fixed-bottom {
+  background-image:url('header.png');
+  height: 3em;
+  padding-top: .8em;
+}
+
+.foot-fixed-bottom p {
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em;
+  color: #fff;
+}
+
+
+

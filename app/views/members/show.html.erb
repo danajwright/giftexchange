@@ -1,22 +1,28 @@
-Greetings <%= @member.first_name %>!
+<div class="container">
+  <div class="center-div">
+    <h2>Merry Christmas <%= @member.first_name %>!</h2>
+    <form class="form-horizontal" id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
+     <fieldset>
+        <p>Are you <i>in</i> on the Cousin Gift Exchange?</p>
+        <div class="controls">
+          <label class="radio" for="radios-1">
+            <input type="radio" class="member-no-radio" id="radios-0" name="reply[<%= @member.id %>]" required="true" value="true">Yes<br>
+            <input type="radio" class="member-yes-radio" id="radios-0" name="reply[<%= @member.id %>]" required="true" value="false">No
+          </label>
 
-  <form id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
-    <p>Are you going to participate?</p>
+          <div id="member-no-response" class="slidingDiv">
+            <p>Bummer, maybe next year!</p>
+          </div>
 
-    <input type="radio" name="reply[<%= @member.id %>]" required="true" value="true">Yes<br>
-    <input type="radio" name="reply[<%= @member.id %>]" required="true" value="false">No
+          <div id="member-yes-response">
+            <p>Sweet! Provide some of your recent interests here so the person who "draws" you has some ideas:</p>
+            <textarea class="form-control" id="member-interests" name="interests[<%= @member.id %>]" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
+          </div>
 
-    <div id="no-response">
-      <p>Bummer, maybe next year!</p>
-    </div>
-
-    <div id="member-yes-response">
-      <p>Sweet! Provide some of your recent interests here so the person who "draws" you has some ideas:</p>
-      <textarea id="member-interests" name="interests[<%= @member.id %>]" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
-    </div>
-
-    <%= render partial: "dependents_form" %>
-
-    <%#= render partial: "blogpost", locals: {nightout: nightout} %>
-    <input type="submit" value="Submit">
-  </form>
+          <%= render partial: "dependents_form" %>
+        <input class="btn btn-success btn-large" id="form-button" type="submit" value="Submit">
+      </div>
+     </fieldset>
+     </form>
+  </div>
+</div>

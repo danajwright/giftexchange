@@ -14,7 +14,7 @@ Giftexchange2::Application.routes.draw do
 
   get 'signup' => 'users#new'
 
-  match '/:permalink' => 'members#permalink'
-
+  get "logout" => "sessions#destroy", :as => "logout"
+  # match '/:permalink' => 'members#permalink'
 
 end

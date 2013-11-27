@@ -6,7 +6,7 @@ class Member < ActiveRecord::Base
   belongs_to :member
 
   def to_param
-       permalink
+    permalink
   end
 
   private

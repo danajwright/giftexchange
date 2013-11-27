@@ -3,7 +3,7 @@ class MembersController < ApplicationController
   def index
     @members = Member.all
   # is admin logged in, show the new member page
-  # else be like not authorized
+  # else not be  authorized
   end
 
   def new
@@ -13,12 +13,12 @@ class MembersController < ApplicationController
   end
 
   def create
-    #raise params.inspect
-
-    @user = User.find(params[:member][:user_id].to_i)
+    # raise params.inspect
+    #@user = User.find(params[:member][:user_id].to_i)
     @member = Member.new(params[:member])
     if @member.save
-      redirect_to members_path
+      #redirect_to members_path
+      render :json => @member #takes member and passes as a json object
     else
       flash[:error] = @member.errors.messages
       render :new
@@ -26,8 +26,11 @@ class MembersController < ApplicationController
   end
 
   def show
+    #create a new session with @memember
     @member = Member.find(params[:id])
-    # create a new session with @memember
+    #instance variable for dependent section of member form
+    #(updates respective dependent associated with member)
+    @dependents = @member.dependents
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @member }
@@ -44,19 +47,46 @@ class MembersController < ApplicationController
   end
 
   def update
-    #binding.pry
+    replied = {}
     @member = Member.find(params[:id])
-    if @member.update_attributes(params[:member])
-      redirect_to members_path
-    else
-      flash[:error] = @members.errors.full_messages
-      render :edit
+    replies = params[:reply]
+    replies.each do |k, v|
+      replied = Member.find_by_id(k)
+      if (v != replied.active)
+        replied.active = v
+        replied.save
+      end
     end
+    replies = {}
+    replies = params[:interests]
+    replies.each do |k, v|
+      replied = Member.find_by_id(k)
+      replied.interests = v
+      replied.save
+    end
+    render :thanks
+
+    # params members to update.each do |attributes|
+    #   find_member_by_id[attributes]
+    # end
+    # if @member.update_attributes(params[:member])
+    #   redirect_to members_path
+    # else
+    #   flash[:error] = @members.errors.full_messages
+    #   render :edit
+    # end
   end
 
+  # def destroy
+  #   member = Member.find_permalink(params[:id])
+  #   member.delete
+  #   redirect_to members_path
+  # end
+
   def destroy
-    member = Member.find_permalink(params[:id])
-    member.delete
-    redirect_to members_path
+    Member.delete(params[:id])
+    render nothing: true, status: 200
+    flash[:success] = "Member deleted."
   end
+
 end

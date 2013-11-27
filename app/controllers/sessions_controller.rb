@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
+  skip_before_filter :require_login, only: [:new, :create]
+
   def new
 
   end

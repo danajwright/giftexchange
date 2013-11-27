@@ -48,23 +48,33 @@ class MembersController < ApplicationController
 
   def update
     replied = {}
+
     @member = Member.find(params[:id])
     replies = params[:reply]
-    replies.each do |k, v|
-      replied = Member.find_by_id(k)
-      if (v != replied.active)
-        replied.active = v
+    if (!replies.empty?)
+      replies.each do |k, v|
+        replied = Member.find_by_id(k)
+        if (v != replied.active)
+          replied.active = v
+          replied.save
+        end
+      end
+
+      replies = {}
+      replies = params[:interests]
+      replies.each do |k, v|
+        replied = Member.find_by_id(k)
+        replied.interests = v
         replied.save
       end
+
+      @accepted = Member.where(:active => true)
+      @declined = Member.where(:active => false)
+      @not_responded = Member.where(:active => nil)
+      render :thanks
+    else
+      render "/members/"
     end
-    replies = {}
-    replies = params[:interests]
-    replies.each do |k, v|
-      replied = Member.find_by_id(k)
-      replied.interests = v
-      replied.save
-    end
-    render :thanks
 
     # params members to update.each do |attributes|
     #   find_member_by_id[attributes]

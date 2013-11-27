@@ -3,8 +3,8 @@ Greetings <%= @member.first_name %>!
   <form id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
     <p>Are you going to participate?</p>
 
-    <input type="radio" name="reply[<%= @member.id %>]" value="true">Yes<br>
-    <input type="radio" name="reply[<%= @member.id %>]" value="false">No
+    <input type="radio" name="reply[<%= @member.id %>]" required="true" value="true">Yes<br>
+    <input type="radio" name="reply[<%= @member.id %>]" required="true" value="false">No
 
     <div id="no-response">
       <p>Bummer, maybe next year!</p>

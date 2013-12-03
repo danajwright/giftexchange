@@ -6,7 +6,9 @@
   <%= javascript_include_tag "application" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Volkhov' rel='stylesheet' type='text/css'>
 </head>
+
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
     <div class="navbar-header">
@@ -24,7 +26,7 @@
           <a href="../edit">Edit Form</a>
         </li>
         <li>
-          <a href="../whose-in">Whose In</a>
+          <a href="../participants">Who's In</a>
         </li>
         <li>
           <a href="../drawing">Drawing Results</a>
@@ -32,20 +34,23 @@
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-          <a href="../about">About</a>
+          <a href="#" data-toggle="modal" data-target="#myModal">About</a>
         </li>
       </ul>
     </nav>
   </div>
 </header>
 <body>
-
-<%= yield %>
-
-<div class="foot-fixed-bottom">
-  <p>© Cousin Gift Exchange<p>
+<div id="wrap">
+  <div id="main" class="container clear-top">
+    <%= yield %>
+  </div>
 </div>
 
+<footer class="footer">
+  <p>© Cousin Gift Exchange<p>
+</footer>
+ <%= render 'layouts/about-modal' %>
 </body>
 
 </html>

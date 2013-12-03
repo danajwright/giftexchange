@@ -1,8 +1,12 @@
 Giftexchange2::Application.routes.draw do
 
-  root to: "sessions#new"
+  root to: 'sessions#new'
 
   resources :members
+
+  resources :participants
+
+  resources :hats
 
   post '/members/:id' => 'members#update'
 
@@ -14,7 +18,7 @@ Giftexchange2::Application.routes.draw do
 
   get 'signup' => 'users#new'
 
-  get "logout" => "sessions#destroy", :as => "logout"
+  get 'logout' => 'sessions#destroy', :as => 'logout'
   #match '/:permalink' => 'members#permalink'
 
 end

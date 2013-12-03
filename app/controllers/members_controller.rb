@@ -1,9 +1,10 @@
 class MembersController < ApplicationController
+  skip_before_filter :require_login, only: [:show, :update]
 
   def index
     @members = Member.all
-  # is admin logged in, show the new member page
-  # else not be  authorized
+    # is admin logged in, show the new member page
+    # else not be  authorized
   end
 
   def new
@@ -13,16 +14,9 @@ class MembersController < ApplicationController
   end
 
   def create
-    # raise params.inspect
     #@user = User.find(params[:member][:user_id].to_i)
     @member = Member.new(params[:member])
-    if @member.save
-      #redirect_to members_path
-      render :json => @member #takes member and passes as a json object
-    else
-      flash[:error] = @member.errors.messages
-      render :new
-    end
+    redirect_to members_path
   end
 
   def show
@@ -31,10 +25,6 @@ class MembersController < ApplicationController
     #instance variable for dependent section of member form
     #(updates respective dependent associated with member)
     @dependents = @member.dependents
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @member }
-    end
   end
 
   def permalink
@@ -71,20 +61,10 @@ class MembersController < ApplicationController
       @accepted = Member.where(:active => true)
       @declined = Member.where(:active => false)
       @not_responded = Member.where(:active => nil)
-      render :thanks
+      redirect_to '/participants'
     else
       render "/members/"
     end
-
-    # params members to update.each do |attributes|
-    #   find_member_by_id[attributes]
-    # end
-    # if @member.update_attributes(params[:member])
-    #   redirect_to members_path
-    # else
-    #   flash[:error] = @members.errors.full_messages
-    #   render :edit
-    # end
   end
 
   # def destroy

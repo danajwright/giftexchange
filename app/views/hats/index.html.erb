@@ -1,5 +1,9 @@
-<% @santas_list.each do |match| %>
-  <% match.each do |k, v| %>
-  <%= v.first_name %> <%= v.last_name %> is on <%= k.first_name %> <%= k.last_name %>'s list.
+
+
+<div class="center-div">
+  <% @santas_list.each do |match| %>
+    <% match.each do |k, v| %>
+    <%= v.first_name %> <%= v.last_name %> is on <%= k.first_name %> <%= k.last_name %>'s list.
+    <% end %>
   <% end %>
-<% end %>
+</div>

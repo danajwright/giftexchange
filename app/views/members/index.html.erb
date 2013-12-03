@@ -1,8 +1,8 @@
 <a href="/logout">Log out link</a><br>
 <br>
-<div>
-<% @members.each do |member| %>
-  <ul>
+<div id="members">
+  <% @members.each do |member| %>
+  <ul id="member-ul">
     <li class="label">Member Name:</li>
     <li><%= member.first_name %> <%= member.last_name %></li>
     <li class="label">Email Address:</li>
@@ -19,6 +19,7 @@
     <li><%= member.permalink %></li>
     <li class="label">Member ID:</li>
     <li><%= member.id %></li>
+  </ul>
 </div>
 <hr>
 <% end %>

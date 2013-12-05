@@ -15,7 +15,7 @@ class MembersController < ApplicationController
 
   def create
     #@user = User.find(params[:member][:user_id].to_i)
-    @member = Member.new(params[:member])
+    @member = Member.create(params[:member])
     redirect_to members_path
   end
 

@@ -2,56 +2,45 @@
 # 2.  Filter the matching name out of the list.
 # 3.  Assign a random Santa from the list in step 2, to the name in step 1.
 # 4.  Repeat until all names are assigned...
-class Hat
 
-  #represents a member of the Gift Exchange
-  # Member = Struct.new(:firstName, :lastName, :email, :clan)
+
+class Hat
 
   def initialize
     @members = []
-    @pool = []
+    @validPool = []
   end
 
   #put a new member into the hat
   def put(member)
-    # member = Member.new(firstName, lastName, email)
     @members << member
-    @pool << member
+    @validPool << member
   end
 
   #match every member to a Secret Santa
   def match
-    match_list = []
-    @members.each do |santa|
-    santa_clan = draw(santa)
-    match_list << {santa => santa_clan}
+    @match_list = {}
+
+    @members.each do |member|
+
+      # @validPool = @members.dup
+      #@validPool.delete(member)
+
+      vp_size = @validPool.size
+      secret_santa = @validPool.at(rand(vp_size)) #until (secret_santa.id != member.id)
+      while (secret_santa.id == member.id)
+        secret_santa = @validPool.at(rand(vp_size)) #until (secret_santa.id != member.id)
+      end
+      @validPool.delete(secret_santa)
+
+      # key   = "#{secret_santa.first_name} #{secret_santa.last_name}"
+      # value = "#{member.first_name} #{member.last_name}"
+      key   = secret_santa
+      value = member
+
+      @match_list[key] = value
     end
-    return match_list
+    return @match_list
   end
 
-  #draw a person out of the hat for a Secret Santa
-  def draw(santa)
-    validPool = filter(santa)
-    person = validPool.at(rand(validPool.size))
-    @pool.delete(person)
-  end
-
-  #filter out people who are in the same clan as Secret Santa
-  def filter(santa)
-    @pool.select do |member|
-      member.last_name != santa.last_name
-    end
-  end
-
-  #notify each Secret Santa which members are on their list
-  # def notify(santa)
-  #   if santa.clan != nil
-  #     msg = "#{santa.clan.firstName} #{santa.clan.lastName} is on " +
-  #           "#{santa.firstName} #{santa.lastName}'s list." +
-
-  #   else
-  #     msg = "#{santa.firstName} #{santa.lastName}'s list is empty!"
-  #   end
-
-  # end
 end

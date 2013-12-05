@@ -9,6 +9,10 @@ class Member < ActiveRecord::Base
     permalink
   end
 
+  def full_name
+    return first_name + " " + last_name
+  end
+
   private
    def create_permalink
         self.permalink = SecureRandom.urlsafe_base64(8)

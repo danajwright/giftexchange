@@ -6,6 +6,9 @@ class CreateMembers < ActiveRecord::Migration
       t.string :email
       t.string :interests
       t.boolean :dependent
+      t.integer :s_key
+      t.boolean :active
+
       t.timestamps
     end
   end

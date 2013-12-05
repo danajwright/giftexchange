@@ -1,14 +1,16 @@
 class SessionsController < ApplicationController
+  include SessionsHelper
+  skip_before_filter :require_login, only: [:new, :create]
+
   def new
 
   end
 
   def create
-    binding.pry
     user= User.find_by_email(params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       sign_in user
-      redirect_to root_path
+      redirect_to new_member_path
     else
       flash.now[:error] = 'Invalid email or password'
       render 'new'
@@ -20,3 +22,4 @@ class SessionsController < ApplicationController
     redirect_to root_path
   end
 end
+

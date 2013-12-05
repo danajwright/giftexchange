@@ -1,0 +1,25 @@
+<a href="/logout">Log out link</a><br>
+<br>
+<div id="members">
+  <% @members.each do |member| %>
+  <ul id="member-ul">
+    <li class="label">Member Name:</li>
+    <li><%= member.first_name %> <%= member.last_name %></li>
+    <li class="label">Email Address:</li>
+    <li><%= member.email %></li>
+    <li class="label">Interests:</li>
+    <li><%= member.interests %></li>
+    <li class="label">Dependent?</li>
+    <li><%= member.dependent %></li>
+    <li class="label">Dependent on member with ID..</li>
+    <li><%= member.member_id %></li>
+    <li class="label">Is Member Active?</li>
+    <li><%= member.active %></li>
+    <li class="label">Member's Permalink:</li>
+    <li><%= member.permalink %></li>
+    <li class="label">Member ID:</li>
+    <li><%= member.id %></li>
+  </ul>
+</div>
+<hr>
+<% end %>

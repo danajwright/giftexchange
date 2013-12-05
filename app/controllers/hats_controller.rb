@@ -1,0 +1,39 @@
+class HatsController < ApplicationController
+  skip_before_filter :require_login, only: [:index]
+
+  def index
+    @hat = Hat.new
+  end
+
+  def create
+    # Setup some test data:
+    #Member.new(:first_name => "John", :last_name => "Smith", :interests => "Tennis" , :dependent => false, :s_key => "nothing", :active => nil, :email => "johnston.sjg@gmail.com", :permalink = "A12345", :user_id, :member_id)
+
+    @members = Member.all
+    hat = Hat.new
+    Member.all.each do |m|
+      hat.put(m)
+    end
+
+    @match_list = hat.match
+
+    # store match_list results to the last entry of the match_list DB table
+
+    # render updated results
+
+    render :create
+  end
+
+  def new
+    # runs post to create
+
+  end
+
+  def show
+    # access static results stored in the last entry in match_list DB tab;e
+
+    # render static resutls to user
+  end
+
+end
+

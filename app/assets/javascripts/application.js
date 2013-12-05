@@ -12,4 +12,39 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require bootstrap
+
 //= require_tree .
+
+//WAIT FOR DOM TO LOAD BEFORE ATTACHING EVENT LISTENERS
+// $(function(){
+
+// $( ".member-no-radio" ).select(function() {
+//   ( "#member-no-response".show() );
+// });
+
+// $(".show_hide").show();
+
+$(document).ready(function() {
+  $(".member-yes-radio").on('click',function() {
+    $(this).parent().children('.member-yes-response').slideDown("600")
+    $(this).parent().children('.member-no-response').slideUp("600")
+  });
+
+  $(".member-no-radio").on('click',function() {
+    $(this).parent().children('.member-no-response').slideDown("600")
+    $(this).parent().children('.member-yes-response').slideUp("600")
+  });
+
+  $(".dependent-yes-radio").on('click',function() {
+    $(this).parent().children('.dependent-yes-response').slideDown("600")
+    $(this).parent().children('.dependent-no-response').slideUp("600")
+  });
+
+  $(".dependent-no-radio").on('click',function() {
+    $(this).parent().children('.dependent-no-response').slideDown("600")
+    $(this).parent().children('.dependent-yes-response').slideUp("600")
+  });
+
+});
+

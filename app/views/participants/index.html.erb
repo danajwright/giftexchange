@@ -1,0 +1,27 @@
+<div class="center-div">
+
+  <h2>Who's in thus far :</h2>
+  <hr>
+
+  <div class="participating-label">Participating:</div>
+    <ul id="participating-ul">
+      <% @accepted.each do |attendee| %>
+      <li><%= attendee.first_name %></li>
+      <% end %>
+    </ul>
+
+  <div class="participating-label">Declined:</div>
+    <ul id="participating-ul">
+      <% @declined.each do |non_attendee| %>
+        <li><%= non_attendee.first_name %></li>
+      <% end %>
+    </ul>
+
+  <div class="participating-label">Not Responded Yet:</div>
+    <ul id="participating-ul">
+      <% @not_responded.each do |non_respondee| %>
+        <li><%= non_respondee.first_name %></li>
+      <% end %>
+    </ul>
+
+</div>

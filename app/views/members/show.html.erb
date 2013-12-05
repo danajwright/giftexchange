@@ -1,0 +1,27 @@
+
+<div class="center-div">
+  <h2>Merry Christmas <%= @member.first_name %>!</h2>
+  <form class="form-horizontal" id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
+    <fieldset>
+      <p>Are you <i>in</i> on the Cousin Gift Exchange?</p>
+      <div class="controls">
+        <div class="member-form">
+          <input type="radio" class="member-yes-radio" id="radio-0" name="reply[<%= @member.id %>]" required="true" value="true"><label for="radio-0">Yes</label><br>
+          <input type="radio" class="member-no-radio" id="radio-0" name="reply[<%= @member.id %>]" required="true" value="false"><label for="radio-0">No</label><br>
+
+          <div class="member-no-response">
+            <p>Bummer, maybe next year!</p>
+          </div>
+
+          <div class="member-yes-response">
+            <p>Sweet! Provide some of your recent interests here so the person who "draws" you has some ideas:</p>
+            <textarea class="form-control" id="member-interests" name="interests[<%= @member.id %>]" rows="4" cols="50" placeholder="e.g. ironic tee-shirts, justin bieber, programming, etc (keep the $30 budget in mind)"></textarea>
+          </div>
+        </div>
+        <%= render partial: "dependents_form" %>
+
+        <input class="btn btn-success btn-large" id="form-button" type="submit" value="Submit">
+      </div>
+    </fieldset>
+  </form>
+</div>

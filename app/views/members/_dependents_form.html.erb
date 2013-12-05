@@ -1,0 +1,18 @@
+
+<%#= Member.find_by_member_id(@member.id).first_name %>
+  <% @dependents.each do |d| %>
+    <div class="dependent-form">
+      <p>How about <%= d.first_name %>?</p>
+      <input type="radio" class="dependent-yes-radio" id="radio-0" name="reply[<%= d.id %>]" required="true" value="true"><label for="radio-0">Yes</label><br>
+      <input type="radio" class="dependent-no-radio" id="radio-0" name="reply[<%= d.id %>]" required="true" value="false"><label for="radio-0">No</label><br>
+
+      <div class="dependent-no-response">
+        <p>Bummer, maybe next year!</p>
+      </div>
+
+      <div class="dependent-yes-response">
+        <p>Sweet! Provide some of their interests here:</p>
+        <textarea class="form-control" name="interests[<%= d.id %>]" rows="4" cols="50" placeholder="e.g. handy many, bonzis, grand theft redemption.."></textarea>
+      </div>
+    </div>
+  <% end %>

@@ -15,7 +15,7 @@ class Member < ActiveRecord::Base
 
   private
    def create_permalink
-        self.permalink = SecureRandom.urlsafe_base64(8)
+      self.permalink = SecureRandom.urlsafe_base64(8)
    end
 
 end

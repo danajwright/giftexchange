@@ -1,7 +1,7 @@
 
 <div class="center-div">
   <h2>Merry Christmas <%= @member.first_name %>!</h2>
-  <form class="form-horizontal" id="member-form" action="/members/<%= @member.id %>" method="POST" name="member_form">
+  <form class="form-horizontal" id="member-form" action="/members/<%= @member.permalink %>" method="POST" name="member_form">
     <fieldset>
       <p>Are you <i>in</i> on the Cousin Gift Exchange?</p>
       <div class="controls">

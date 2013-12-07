@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122193556) do
+ActiveRecord::Schema.define(:version => 20131206010959) do
 
   create_table "exchanges", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,13 @@ ActiveRecord::Schema.define(:version => 20131122193556) do
     t.datetime "deadline"
     t.datetime "end_date"
     t.integer  "user_id"
+  end
+
+  create_table "matches", :force => true do |t|
+    t.integer  "secret_santa_id"
+    t.integer  "member_id"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "members", :force => true do |t|

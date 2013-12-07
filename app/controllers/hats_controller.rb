@@ -1,5 +1,5 @@
 class HatsController < ApplicationController
-  skip_before_filter :require_login, only: [:index]
+  skip_before_filter :require_login, only: [:index, :show]
 
   def index
     @hat = Hat.new
@@ -15,7 +15,9 @@ class HatsController < ApplicationController
       hat.put(m)
     end
 
-    @match_list = hat.match
+    hat.match
+
+    @match_list = Match.all
 
     # store match_list results to the last entry of the match_list DB table
 
@@ -26,12 +28,11 @@ class HatsController < ApplicationController
 
   def new
     # runs post to create
-
   end
 
   def show
+    @match_list = Match.all
     # access static results stored in the last entry in match_list DB tab;e
-
     # render static resutls to user
   end
 

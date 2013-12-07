@@ -19,7 +19,8 @@ class Hat
 
   #match every member to a Secret Santa
   def match
-    @match_list = {}
+
+    Match.delete_all
 
     @members.each do |member|
 
@@ -31,16 +32,15 @@ class Hat
       while (secret_santa.id == member.id)
         secret_santa = @validPool.at(rand(vp_size)) #until (secret_santa.id != member.id)
       end
+
       @validPool.delete(secret_santa)
 
       # key   = "#{secret_santa.first_name} #{secret_santa.last_name}"
       # value = "#{member.first_name} #{member.last_name}"
-      key   = secret_santa
-      value = member
 
-      @match_list[key] = value
+      Match.create(secret_santa_id: secret_santa.id, member_id: member.id)
+
     end
-    return @match_list
   end
 
 end

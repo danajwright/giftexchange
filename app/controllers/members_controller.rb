@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  skip_before_filter :require_login, only: [:show, :update]
+  skip_before_filter :require_login, only: [:show, :update, :link]
 
   def index
     @members = Member.all
@@ -17,6 +17,12 @@ class MembersController < ApplicationController
     #@user = User.find(params[:member][:user_id].to_i)
     @member = Member.create(params[:member])
     redirect_to members_path
+  end
+
+  def link
+    @member = Member.find_by_permalink(params[:permalink])
+    @dependents = @member.dependents
+    render :show
   end
 
   def show
@@ -39,7 +45,7 @@ class MembersController < ApplicationController
   def update
     replied = {}
 
-    @member = Member.find(params[:id])
+    @member = Member.find_by_permalink(params[:permalink])
     replies = params[:reply]
     if (!replies.empty?)
       replies.each do |k, v|

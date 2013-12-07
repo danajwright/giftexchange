@@ -13,10 +13,19 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
 
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
+  # /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+  VALID_EMAIL = "danajwright@gmail.com"
+  validates :email, presence: true
+
+  validate :secure
 
   private
+
+  def secure
+    if email != "danajwright@gmail.com"
+    errors.add(:email, "sorry about it")
+    end
+  end
 
   def create_remember_token
     self.remember_token = SecureRandom.urlsafe_base64

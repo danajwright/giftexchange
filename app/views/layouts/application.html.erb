@@ -5,19 +5,21 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <%= csrf_meta_tags %>
+  <%= csrf_meta_tag %>
   <link href='http://fonts.googleapis.com/css?family=Volkhov' rel='stylesheet' type='text/css'>
   <!-- Hide Safari on iPhone -->
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <!-- 16x16 favicon -->
-  <%= favicon_link_tag 'favicon.ico' %>
-  <!-- 57x57 older iPhone and Android devices -->
-  <%= favicon_link_tag 'present-57x57.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
-  <!-- iPad 1 and 2 & iPad mini -->
-  <%= favicon_link_tag 'present-72x72.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
-  <!-- iPhone 4, 4S, 5 and iPod Touch -->
-  <%= favicon_link_tag 'present-114x114.png', :rel => 'apple-touch-icon', :type => 'image/png' %>
+  <%= favicon_link_tag('favicon.ico') %>
+  <!-- Apple homescreen icons -->
+  <%= favicon_link_tag('favicon-57.png', rel: 'apple-touch-icon', type: 'image/png',  sizes: "57x57") %>
+  <%= favicon_link_tag('favicon-72.png', rel: 'apple-touch-icon', type: 'image/png', sizes: "72x72") %>
+  <%= favicon_link_tag('favicon-114.png', rel: 'apple-touch-icon', type: 'image/png', sizes: "114x114") %>
+  <%= favicon_link_tag('favicon-144.png', rel: 'apple-touch-icon', type: 'image/png', sizes: "144x144") %>
+
 </head>
+
+
 
 <header class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
   <div class="container">
@@ -28,7 +30,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="#" class="navbar-brand">CousinGiftExchange</a>
+      <%= image_tag "logo.png" %>
     </div>
     <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">

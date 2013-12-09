@@ -1,5 +1,13 @@
 <div class="center-div">
+  <h2>The results are in...</h2>
   <% @match_list.each do |match| %>
-    <%= match.secret_santa.full_name %> =&gt; <%= match.member.full_name %> [Interests: <%= match.member.interests %>]<br>
-  <% end %>
+  <ul id="results-list">
+    <li>
+      <h4><%= match.secret_santa.goes_by %> &nbsp&nbsp→&nbsp&nbsp <a href="#" class="gift-button"><%= match.member.goes_by %><span class="glyphicon glyphicon-gift"></span></h4></a>
+    </li>
+    <li class="interests">
+      <p><%= match.member.goes_by %>'s interests: <%= match.member.interests %></p>
+    </li>
+    <% end %>
+  </ul>
 </div>

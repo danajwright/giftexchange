@@ -1,5 +1,5 @@
 class Member < ActiveRecord::Base
-  attr_accessible :first_name, :last_name, :email, :interests, :dependent, :user_id, :active, :member_id
+  attr_accessible :first_name, :last_name, :email, :interests, :dependent, :user_id, :active, :member_id, :goes_by, :img_url
   before_create :create_permalink
 
   has_many :dependents, :class_name => "Member"

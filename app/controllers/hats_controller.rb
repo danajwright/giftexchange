@@ -32,7 +32,7 @@ class HatsController < ApplicationController
 
   def show
     @match_list = Match.all
-    # access static results stored in the last entry in match_list DB tab;e
+    # access static results stored in the last entry in match_list DB table
     # render static resutls to user
   end
 

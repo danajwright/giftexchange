@@ -37,7 +37,8 @@ html, body {
 #main {
   overflow:auto;
   padding-bottom: 3em; /* this needs to be bigger than footer height*/
-  padding-top: 4em;
+  padding-top: 6em;
+  background-image:url('body-background.png');
 }
 
 
@@ -46,21 +47,28 @@ html, body {
 
 .navbar {
   background-image:url('header.png');
+  min-height: 4.6em;
 }
 
 .navbar-header {
   color: #fff;
 }
 
-.navbar-inverse .navbar-nav li a {
-  color: #fff;
+.navbar-header img {
+  width: 15em;
+  padding-top: .83em;
+  padding-left: .6em;
 }
 
-.navbar-brand {
-  font-family: 'Volkhov';
-  font-style: ;
-  font-size: 3em;
+.navbar-inverse .navbar-nav li a {
+  color: #fff;
+  margin-top: .6em;
 }
+
+button.navbar-toggle {
+  padding-top: 1em;
+}
+
 
 /*************************ADMIN SIGNIN BODY****************************/
 
@@ -78,7 +86,7 @@ html, body {
 }
 
 .center-div h2 {
-  margin-top: 1em;
+  margin-top: .3em;
   font-size: 1.7em;
 }
 
@@ -133,7 +141,7 @@ form {
 
 
 .participating-label {
-  margin-top: 2em;
+  margin-top: 3em;
   margin-bottom: .5em;
   font-size: 90%;
   font-weight: bold;
@@ -150,6 +158,98 @@ form {
 }
 
 
+/*************************RESULTS PAGE***************************/
+
+
+#results-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#results-list h4 {
+  margin-top: 1.6em;
+  font-size: 1.1em;
+}
+
+#results-list h4 a {
+  text-decoration: none;
+  color: #636363;
+
+}
+
+#results-list li span {
+  font-size: .9em;
+  margin-left: .6em;
+  padding-bottom: .2em;
+  text-decoration: none;
+  color: #003663;
+
+}
+
+.interests {
+  display: none;
+}
+
+/*************************PARTICIPANTS INDEX***************************/
+
+
+.whos-in {
+  margin-bottom: 1em;
+}
+
+.participant-container {
+  margin-top: .6em;
+  background-color: #ebebeb;
+  padding-left: 3em;
+  height: 3.4em;
+}
+
+.participant-container ul li.name {
+  padding-top: 1.2em;
+  padding-left: 1em;
+  position: absolute;
+}
+
+#participating-ul {
+  display: inline;
+}
+
+#declined-ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#no-response-ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+#participating-ul li {
+  display: inline;
+}
+
+#participating-ul .name {
+  display: inline;
+  margin-left: .7em;
+  font-size: .9em;
+}
+
+.mug img {
+  border-radius: 100%;
+  margin-top: .9em;
+  height: 2em;
+  width: 2em;
+  position: relative;
+}
+
+.hat {
+  position: relative;
+  margin-left: -3em;
+}
+
+.hat img {
+  width: 2.3em;
+}
 
 
 /*************************MEMBER INDEX***************************/

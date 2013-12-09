@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131206010959) do
+ActiveRecord::Schema.define(:version => 20131208064522) do
 
   create_table "exchanges", :force => true do |t|
     t.string   "name"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(:version => 20131206010959) do
     t.string   "permalink"
     t.integer  "user_id"
     t.integer  "member_id"
+    t.string   "img_url"
+    t.string   "goes_by"
   end
 
   create_table "users", :force => true do |t|

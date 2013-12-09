@@ -1,27 +1,32 @@
 <div class="center-div">
 
-  <h2>Who's in thus far :</h2>
-  <hr>
+  <h2 class="whos-in"> Who's in thus far :</h2>
+    <% @accepted.each do |attendee| %>
+    <div class="participant-container">
+      <ul id="participating-ul">
+        <li class="mug"><%= image_tag attendee.img_url %></li>
+        <li class="hat"><%= image_tag 'hat.png' %></li>
+        <li class="name"><%= attendee.goes_by %>'s in.</li>
+      </ul>
+    </div>
+    <% end %>
 
-  <div class="participating-label">Participating:</div>
-    <ul id="participating-ul">
-      <% @accepted.each do |attendee| %>
-      <li><%= attendee.first_name %></li>
-      <% end %>
-    </ul>
+  <div class="participating-label">
+    Not in:
+  </div>
+  <ul id="declined-ul">
+    <% @declined.each do |non_attendee| %>
+      <li><%= non_attendee.goes_by %></li>
+    <% end %>
+  </ul>
 
-  <div class="participating-label">Declined:</div>
-    <ul id="participating-ul">
-      <% @declined.each do |non_attendee| %>
-        <li><%= non_attendee.first_name %></li>
-      <% end %>
-    </ul>
-
-  <div class="participating-label">Not Responded Yet:</div>
-    <ul id="participating-ul">
-      <% @not_responded.each do |non_respondee| %>
-        <li><%= non_respondee.first_name %></li>
-      <% end %>
-    </ul>
+  <div class="participating-label">
+    Not Responded Yet:
+  </div>
+  <ul id="no-response-ul">
+    <% @not_responded.each do |non_respondee| %>
+      <li><%= non_respondee.goes_by %></li>
+    <% end %>
+  </ul>
 
 </div>

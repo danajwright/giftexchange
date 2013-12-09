@@ -17,13 +17,6 @@
 //= require_tree .
 
 //WAIT FOR DOM TO LOAD BEFORE ATTACHING EVENT LISTENERS
-// $(function(){
-
-// $( ".member-no-radio" ).select(function() {
-//   ( "#member-no-response".show() );
-// });
-
-// $(".show_hide").show();
 
 $(document).ready(function() {
   $(".member-yes-radio").on('click',function() {

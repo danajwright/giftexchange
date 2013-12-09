@@ -12,25 +12,33 @@
 <% end %>
 
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %><br>
     <%= f.text_field :first_name, :autofocus => true %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %><br>
     <%= f.text_field :last_name, :autofocus => true %>
   </div>
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :goes_by %><br>
+    <%= f.text_field :goes_by, :autofocus => true %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
     <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :dependent %><br />
+    <%= f.label :image_url %><br>
+    <%= f.text_field :img_url %>
+  </div>
+  <div class="field">
+    <%= f.label :dependent %><br>
     <%= f.radio_button :dependent, true %> <%= f.label :dependent, "Yes" %>
     <%= f.radio_button :dependent, false %> <%= f.label :dependent, "No" %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="field">
-    <%= f.label "Member ID" %><br />
+    <%= f.label "Member ID" %><br>
     <%= f.text_field :member_id %>
   </div>
 

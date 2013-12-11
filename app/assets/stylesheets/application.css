@@ -8,9 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
- *= require_self
  *= require bootstrap
  *= require_tree .
+ *= require_self
 */
 
 
@@ -377,6 +377,15 @@ li.label {
   margin-right: auto;
   width: 12em;
   color: #fff;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: rgba(51, 51, 51, 0);
+}
+
+.navbar-inverse .navbar-toggle {
+  border: none;
 }
 
 @media screen and (min-width: 500px) {

@@ -1,13 +1,20 @@
 <div class="center-div">
-  <h2>The results are in...</h2>
+  <h2 class="results-title">The results are in...</h2>
   <% @match_list.each do |match| %>
-  <ul id="results-list">
-    <li>
-      <h4><%= match.secret_santa.goes_by %> &nbsp&nbsp→&nbsp&nbsp <a href="#" class="gift-button"><%= match.member.goes_by %><span class="glyphicon glyphicon-gift"></span></h4></a>
-    </li>
-    <li class="interests">
-      <p><%= match.member.goes_by %>'s interests: <%= match.member.interests %></p>
-    </li>
-    <% end %>
-  </ul>
-</div>
+  <div class="results-container">
+    <ul id="results-ul">
+      <li class="results-santa-mug"><%= image_tag match.secret_santa.img_url %></li>
+      <li class="results-hat"><%= image_tag 'hat.png' %></li>
+      <li class="secret-santa-name"><%= match.secret_santa.goes_by %> &nbsp→</li>
+      <li class="results-mug"><%= image_tag match.member.img_url %></li>
+      <li class="name"><%= match.member.goes_by %></li>
+      <li class="plus-button"><a href="#" class="gift-button plus" id="plus">+</a></li>
+      <li class="interests">
+        <%= match.member.goes_by %>'s interests: <%= match.member.interests %>
+      </li>
+    </ul>
+  </div>
+  <% end %>
+
+
+<!--   <span class="glyphicon glyphicon-gift"></span></a> -->

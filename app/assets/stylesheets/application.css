@@ -388,6 +388,26 @@ li.label {
   border: none;
 }
 
+.jumbotron {
+  max-width: 720px;
+}
+
+.jumbo-text {
+  max-width: 27em;
+}
+
+.btn-jumbo {
+  margin-top: 1em;
+  background-color: #003663;
+  border-color: #003663;
+}
+
+.btn-jumbo:hover {
+  margin-top: 1em;
+  background-color: #003663;
+  border-color: #003663;
+}
+
 @media screen and (min-width: 500px) {
 
 .plus-button {

@@ -3,6 +3,7 @@ class HatsController < ApplicationController
 
   def index
     @hat = Hat.new
+    #redirect_to hat_path(1)
   end
 
   def create
@@ -10,7 +11,7 @@ class HatsController < ApplicationController
     #Member.new(:first_name => "John", :last_name => "Smith", :interests => "Tennis" , :dependent => false, :s_key => "nothing", :active => nil, :email => "johnston.sjg@gmail.com", :permalink = "A12345", :user_id, :member_id)
 
     @members = Member.all
-    hat = Hat.new
+    @hat = Hat.new
     Member.all.each do |m|
       hat.put(m) if m.active == true
     end

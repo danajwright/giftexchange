@@ -5,11 +5,13 @@ gem 'rails'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
 gem "therubyracer"
 gem "less-rails"
 gem "sidekiq"
 
+group :production do
+ gem 'pg'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,10 +29,12 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
   gem 'pry-rails'
+  gem 'quiet_assets'
 end
 
 # To use ActiveModel has_secure_password

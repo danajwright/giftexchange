@@ -13,7 +13,7 @@ class HatsController < ApplicationController
     @members = Member.all
     @hat = Hat.new
     Member.all.each do |m|
-      hat.put(m) if m.active == true
+      @hat.put(m) if m.active == true
     end
 
     hat.match

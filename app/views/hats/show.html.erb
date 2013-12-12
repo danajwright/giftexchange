@@ -5,9 +5,9 @@
     <ul id="results-ul">
       <li class="results-santa-mug"><%= image_tag match.secret_santa.img_url %></li>
       <li class="results-hat"><%= image_tag 'hat.png' %></li>
-      <li class="secret-santa-name"><%= match.secret_santa.goes_by %> &nbsp→</li>
+      <li class="secret-santa-name"><%= match.secret_santa.first_name %> &nbsp→</li>
       <li class="results-mug"><%= image_tag match.member.img_url %></li>
-      <li class="name"><%= match.member.goes_by %></li>
+      <li class="name"><%= match.member.first_name %></li>
       <li class="plus-button"><a href="#" class="gift-button plus" id="plus">+</a></li>
       <li class="interests">
         <%= match.member.goes_by %>'s interests: <%= match.member.interests %>

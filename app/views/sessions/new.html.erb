@@ -1,12 +1,12 @@
 <div class="jumbotron">
   <div class="container">
     <h2>Hello, cousin!</h2>
-    <p class="jumbo-text">You clicked on the logo.. aren't you a curious cousin. Click 'About' to learn more, or close this app until you get the email announcing the drawing results.</p>
+    <p class="jumbo-text">You clicked on the logo.. aren't you a curious cousin. Nothing to see here, sit tight until you get the email announcing the drawing results.</p>
     <p><a class="btn btn-primary btn-lg btn-jumbo" role="button" data-toggle="modal" data-target="#myModal">About &raquo;</a></p>
   </div>
 </div>
 
-<p>Pay no attention to this. You are not an admin so you can't sign in or <%= link_to "Sign up", signup_path %>.</p>
+<p>I use this to<%= link_to "administer", signup_path %>, nothing special.</p>
 
 <%= form_for(:session, :url => sessions_path) do |f| %>
 

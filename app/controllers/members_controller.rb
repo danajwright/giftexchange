@@ -67,7 +67,7 @@ class MembersController < ApplicationController
       @accepted = Member.where(:active => true)
       @declined = Member.where(:active => false)
       @not_responded = Member.where(:active => nil)
-      redirect_to '../participants'
+      redirect_to participants_path
     else
       render "/members/"
     end

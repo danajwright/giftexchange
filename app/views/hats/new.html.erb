@@ -1,4 +1,5 @@
 
 <form method="post" action="/hats">
+  <input type="hidden" value=<%= session[:_csrf_token] %> name="authenticity_token">
   <input type="submit" value="Generate Match List"/>
 </form>

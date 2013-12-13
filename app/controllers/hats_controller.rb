@@ -16,7 +16,7 @@ class HatsController < ApplicationController
       @hat.put(m) if m.active == true
     end
 
-    hat.match
+    @hat.match
 
     @match_list = Match.all
 

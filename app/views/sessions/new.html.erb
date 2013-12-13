@@ -1,21 +1,38 @@
 <div class="jumbotron">
   <div class="container">
-    <h2>Hello, cousin!</h2>
-    <p class="jumbo-text">You clicked on the logo.. aren't you a curious cousin. Nothing to see here, sit tight until you get the email announcing the drawing results.</p>
-    <p><a class="btn btn-primary btn-lg btn-jumbo" role="button" data-toggle="modal" data-target="#myModal">About &raquo;</a></p>
+    <h2>Welcome to Cousin Gift Exchange!</h2>
+    <p class="jumbo-text">Bringing cousins together to exchange gifts at Grandma's on Christmas :) &nbsp; See how it works in the Screenshots below. </p>
   </div>
 </div>
 
-<p>I use this to <%= link_to "administer", signup_path %>, nothing special.</p>
+<div calss="container" id="landing-body">
+  <div class="col-sm-6">
+    <p>Since all cousins seem to have smart phones these days this app is mobile first. This is the page they land on after clicking the link in their email:</p>
+    <%= link_to image_tag('gift-form.png') %>
+    <p>After filling out the form, cousins can now see who's participating (looks like Aunt Jennifer's crashing the party):</p>
+    <%= link_to image_tag('gift-participants.png') %>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to image_tag('gift-homescreen.png') %>
+    <p>At that point they probably start clicking around, and maybe bookmark the app to their homescreen.</p>
+  </div>
+  <div class="col-sm-6">
+    <%= link_to image_tag('gift-results.png') %>
+    <p>A few days later, results of the 'drawing' are announced and Cousins can easily see who they "drew" as well as that person's current interests to help with gift ideas.</p>
+  </div>
+</div>
+<div id="admin-sign-in">
+  <div class="container">
+    <p><b>For <%= link_to "admin", signup_path %> use only.</b></p>
 
-<%= form_for(:session, :url => sessions_path) do |f| %>
+    <%= form_for(:session, :url => sessions_path) do |f| %>
 
-  <%= f.label :email %>
-  <%= f.text_field :email %>
+      <%= f.label :email %>
+      <%= f.text_field :email %>
 
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-
-  <%= f.submit "Sign in" %>
-<% end %>
-<br>
+      <%= f.label :password %>
+      <%= f.password_field :password %><br>
+      <br>
+      <%= f.submit "Sign in" %>
+    <% end %>
+</div>

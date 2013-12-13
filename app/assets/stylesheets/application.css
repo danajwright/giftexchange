@@ -390,10 +390,39 @@ li.label {
 
 .jumbotron {
   max-width: 720px;
+  color: #636363;
+}
+
+#landing-body {
+  max-width: 720px;
+  margin-bottom: 2em;
+  color: #636363;
+}
+
+#landing-body h1 {
+  text-align: center;
+  margin-top: 1.3em;
+  margin-bottom: 3em;
+}
+
+#landing-body p {
+  font-weight: bold;
+  width: 90%;
+}
+
+#landing-body img {
+  width: 90%;
+  margin-top: .5em;
+  margin-bottom: 2em;
+}
+
+.col-md-6 {
+  background-color: red;
 }
 
 .jumbo-text {
   max-width: 27em;
+  margin-top: .9em;
 }
 
 .btn-jumbo {
@@ -406,6 +435,28 @@ li.label {
   margin-top: 1em;
   background-color: #003663;
   border-color: #003663;
+}
+
+#admin-sign-in {
+  clear: both;
+  background-color: #eeeeee;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-top: 9em;
+  margin-bottom: 1em;
+  color: #636363;
+    -moz-border-radius-topleft: 6px;
+  border-top-left-radius: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-left-radius: 6px;
+  -moz-border-radius-topright: 6px;
+  border-top-right-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+#session_email {
+  margin-right: 2em;
 }
 
 @media screen and (min-width: 500px) {

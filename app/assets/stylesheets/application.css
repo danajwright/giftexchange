@@ -69,6 +69,15 @@ button.navbar-toggle {
   padding-top: 1em;
 }
 
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+  background-color: rgba(51, 51, 51, 0);
+}
+
+.navbar-inverse .navbar-toggle {
+  border: none;
+}
+
 
 /*************************ADMIN SIGNIN BODY****************************/
 
@@ -360,32 +369,14 @@ li.label {
   vertical-align: baseline;
 }
 
+/*************************LANDING PAGE****************************/
 
-/*************************GLOBAL FOOTER****************************/
-
-.footer {
-  position: relative;
-  background-image:url('header.png');
-  margin-top: -3em; /* negative value of footer height */
-  height: 3em;
-  clear: both;
-  padding-top: .8em;
-}
-
-.footer p {
-  margin-left: auto;
-  margin-right: auto;
-  width: 12em;
-  color: #fff;
-}
-
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-  background-color: rgba(51, 51, 51, 0);
-}
-
-.navbar-inverse .navbar-toggle {
-  border: none;
+.landing-center-div {
+  float: none;
+  margin: 0 auto;
+  max-width: 720px;
+  margin-bottom: 3em;
+  color: #636363;
 }
 
 .jumbotron {
@@ -458,6 +449,27 @@ li.label {
 #session_email {
   margin-right: 2em;
 }
+
+
+/*************************GLOBAL FOOTER****************************/
+
+.footer {
+  position: relative;
+  background-image:url('header.png');
+  margin-top: -3em; /* negative value of footer height */
+  height: 3em;
+  clear: both;
+  padding-top: .8em;
+}
+
+.footer p {
+  margin-left: auto;
+  margin-right: auto;
+  width: 12em;
+  color: #fff;
+}
+
+
 
 @media screen and (min-width: 500px) {
 

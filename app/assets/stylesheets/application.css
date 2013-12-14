@@ -194,6 +194,7 @@ form {
 #results-ul {
   position: relative;
   padding-left: 1.3em;
+  padding-right: 1em;
 }
 
 #results-ul .name {

@@ -3,7 +3,7 @@ class HatsController < ApplicationController
 
   def index
     @hat = Hat.new
-    #redirect_to hat_path(1)
+    redirect_to hat_path(1)
   end
 
   def create

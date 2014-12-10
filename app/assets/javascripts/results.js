@@ -19,27 +19,3 @@ $(document).ready(function() {
 
   });
 });
-
-
-
-
-    // $(this).parent().parent().children('.interests').children("#plus").text("-")
-
-
-// $(document).ready(function() {
-//   $(".gift-button").on('click',function() {
-//     $(this).parent().parent().children('.interests').slideToggle()
-
-//     $('.interests').slideDown(
-//       function(){
-//         $("#plus").text("-")
-//       }
-//     );
-
-//     $(".interests").slideUp(
-//       function(){
-//         $("#plus").text("+")
-//       }
-//     );
-//   });
-// });

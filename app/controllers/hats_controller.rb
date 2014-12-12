@@ -1,9 +1,11 @@
 class HatsController < ApplicationController
   skip_before_filter :require_login, only: [:index, :show]
 
+  # Uncomment line 8 to show drawing results
+
   def index
     @hat = Hat.new
-    redirect_to hat_path(1)
+    #redirect_to hat_path(1)
   end
 
   def create
